@@ -1,0 +1,32 @@
+
+#rightshare, #topbeta, #topnavTut, #topnavAbout, #footerImg, #footerAbout {
+	display: none;
+}
+
+DIV.chapter {
+	display: none;
+}
+
+#topnavTutP0 {
+    float: left;
+    font-size: 90%;
+    padding-left: 15px;
+    padding-top: 6px;
+    white-space: nowrap;
+    width: 400px;
+    word-spacing: 12px;
+	display: block;
+}
+
+#topnavTutP{
+	float:right;
+	width:400px;
+	word-spacing:6px;
+	font-size:90%;
+	padding-right:13px;
+	padding-top:7px;
+	xcolor:#888888;
+	white-space:nowrap;
+	text-align:right;
+	display: block;
+}
