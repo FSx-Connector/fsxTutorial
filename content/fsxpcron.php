@@ -118,7 +118,7 @@ La Tarea programada de Descarga de Clientes y Pedidos se puede ejecutar manualme
 </p>
 <hr>
 
-<h2>Importación a FactuSOL</h2>
+<h2 id="FSX_CRON_IMPORT_FSOL">Importación a FactuSOL</h2>
 <p>La importación a FactuSOL de Pedidos y Clientes puede automatizarse, indicando la frecuencia con la que FactuSOL se conectará a la web 
 para verificar si existen nuevos ficheros de Pedidos y/o Clientes pendientes de desacargar.</p>
 
