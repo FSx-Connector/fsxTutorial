@@ -92,14 +92,20 @@ descargados; No: Usa el nombre original de FactuSOL.</p>
 <p id="PSH_DLOAD_ALL_LINES"><b>Descargar Pedidos aunque alguna Línea no coincida con FactuSOL</b></p>
 <p>Descargar los Pedidos aunque algún Producto no tenga correspondencia en FactuSOL.</p>
 <ul>
-	<li>Valor: selector Si, No.</li>
+	<li>Valor: selector  <br><br>
+	  <ul>
+		<li>&apos;No&apos;<br>
+		Si alguna línea del Pedido contiene un Producto que no tiene correspondencia en FactuSOL, el Pedido NO se descargará, y se registrará el Error correspondiente en el Componente FSx-LOG.<br><br></li>
+		<li>&apos;Si&apos;<br>
+		Si alguna línea del Pedido contiene un Producto que no tiene correspondencia en FactuSOL, el Pedido se descargará, pero en la línea del Pedido en FactuSOL el campo <i>Código de artículo</i> aparecerá vacío (la línea corresponde a un 'Concepto no Codificado'). Se registrará el Aviso correspondiente en el Componente FSx-LOG.<br><br></li>
+	  </ul></li>
 	<li>Por defecto: &apos;No&apos;.</li>
 </ul>
-<p>Normalmente este parámetro puede fijarse a 'No', ya que puede crear
+<p><br>Normalmente este parámetro debe fijarse a 'No', para evitar
 inconsistencias entre FactuSOL y la Tienda PrestaShop. Un caso en el que interesa ponerlo en
 'Si' es en el caso de un negocio de distribución, cuando en la Tienda se ofrecen
-productos que no se tienen en stock, y que sólo se comprarán si se materializa una
-venta.</p>
+productos que no se tienen en stock (y que por tanto no están dados de alta en FactuSOL), que sólo se comprarán (y se darán de alta en FactuSOL) si se materializa una
+venta en la Tienda PrestaShop.<br><br></p>
 <table class="lamp" id="table1">
 	<tr>
 		<th width="34"><img src="images/lamp.jpg" width="32" height="32" alt="lamp"></th>
@@ -111,6 +117,25 @@ venta.</p>
 	</tr>
 </table>
 <br>
+
+<table class="lamp" id="table1">
+	<tr>
+		<th width="34"><img src="images/tip.png" width="32" height="32" alt="tip" title=" Sugerencia! "></th>
+		<td><b>Si subió el Catálogo por partes...</b><br><br>
+		...es posible que la Base de Datos de FactuSOLWeb no contenga todos los Productos de su Catálogo, y le impida descargar ciertos Pedidos. Para solucionar esta situación:
+
+<ul>
+	<li>En FactuSOL:<br> Asegúrese de marcar todos los Artículos, Secciones y Familias (y Formas de Pago) que se usarán en Internet.<br><br></li>
+	<li>En FactuSOL:<br> Hacer una "Subida de Datos Genérica".<br><br></li>
+	<li>En FSx-Connector:<br> Hacer "Actualizar la Base de Datos de FactuSOLWeb" en el Componente FSx-Configuración. Ahora tendrá en la base de datos de FactuSOLWeb todos los Artículos que está usando en su Tienda PrestaShop.<br><br></li>
+</ul>
+<p>NOTA: si subió los Artículos en diferentes cargas, no es necesario "Actualizar el Catálogo" en el Componente FSx-Catálogo, ya que los Artículos ya se crearon en su Tienda PrestaShop.</p>
+
+		</td>
+	</tr>
+</table>
+<br>
+
 <hr>
 
 <h2 id="FSXPEC_BOX_TAREAS">Caja de Tareas</h2>
@@ -241,7 +266,7 @@ Diccionario).</p>
 <p>Este proceso descarga e introduce en FactuSOL los clientes que se hayan dado de alta desde la web.</p>
 
 <p>Con el objetivo de automatizar este proceso y no obligar al usuario a la ejecución periódica de esta opción, 
-es posible, desde la opción de configuración de Internet indicar al programa la descarga automática del fichero de clientes 
+es posible, desde la opción de Configuración de la pestaña Internet indicar al programa la descarga automática del fichero de clientes 
 cada cierto intervalo de tiempo.</p>
 
 <p>El Cliente se crea en FactuSOL con los datos obtenidos de la Tienda Web. El Código
@@ -255,8 +280,19 @@ FactuSol" con el "id" del Cliente en la Tienda (ver apartado FSx-Connector Confi
 
 <p>Este proceso descarga e introduce en FactuSOL los pedidos de clientes que se hayan realizado desde la web.</p>
 
+<table class="lamp" id="table1">
+	<tr>
+		<th width="34"><img width="32" height="32" title=" Sugerencia! " alt="tip" src="images/tip.png"></th>
+		<td>Es recomendable no importar más de 100 Pedidos y/o Clientes de una sola vez, ya
+que, para cantidades mayores, FactuSOL puede producir errores en tiempo de ejecución (Runtime Error). Si tiene muchos Pedidos que importar, hágalo en
+grupos de unos 100, usando para ello los filtros de Descarga de Pedidos que se explican más arriba.
+		</td>
+	</tr>
+</table>
+<br>
+
 <p>Con el objetivo de automatizar este proceso y no obligar al usuario a la ejecución periódica de esta opción, 
-es posible, desde la opción de configuración de Internet indicar al programa la descarga automática del fichero de pedidos 
+es posible, desde la opción de Configuración de la pestaña Internet indicar al programa la descarga automática del fichero de pedidos 
 de clientes cada cierto intervalo de tiempo.</p>
 
 <table class="lamp" id="table1">

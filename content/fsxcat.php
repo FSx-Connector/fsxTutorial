@@ -265,7 +265,55 @@ el proceso seguirá automáticamente donde se quedó (tras algunos segundos), o 
 		(que es inferior al valor de max_execution_time), y el proceso de Carga del Catálogo puede terminar abruptamente con un 
 		<i>Error 500</i> del servidor. <br><br>
 		También deberá analizarse el consumo de recursos del servidor durante el proceso de Carga del Catálogo, particularmente 
-		el consumos de memoria (variable <b><i>memory_limit</i></b>, que se define en el fichero de configuración <b><i>php.ini</i></b>).
+		el consumos de memoria (variable <b><i>memory_limit</i></b>, que se define en el fichero de configuración <b><i>php.ini</i></b>).<br><br>
+		</td>
+	</tr>
+</table>
+<br><br>
+<table class="lamp" id="table1">
+	<tr>
+		<th width="34"><img src="images/tip.png" width="32" height="32" alt="tip" title=" Sugerencia! "></th>
+		<td><b>No siempre es correcto el tiempo de ejecución máximo que obtiene PHP</b><br><br>
+El intérprete PHP tiene limitado el tiempo de ejecución máximo permitido a un script, especialmente si está en un hosting compartido. El límite de tiempo por defecto es de 30 segundos y se define en la opción <i>max_execution_time</i> del fichero de configuración <b><i>php.ini</i></b> (consulte a su proveedor de hosting para más detalles sobre la configuración de su instalación). PHP dispone de la función <i>'ini_get'</i> para conocer el tiempo de ejecución máximo permitido: 
+<br><br>
+<div class="code notranslate" style="width: 98%;">
+<div>
+$maxTime = ini_get ('max_execution_time'); 
+</div>
+</div>
+<br>
+PHP tiene además una función llamada <i>'set_time_limit'</i> que se puede utilizar para ajustar dinámicamente el tiempo de ejecución máximo permitido a un script. Permite especificar el tiempo en segundos y fija el tiempo de ejecución del script a ese número de segundos. 
+<br><br>
+Normalmente <i>'set_time_limit'</i> se llama al principio de un scipt para extender el tiempo de ejecución del script a esa cantidad de segundos. Así 
+<br><br>
+<div class="code notranslate" style="width: 98%;">
+<div>
+set_time_limit(480);
+</div>
+</div>
+<br>
+hace que el tiempo de ejecución máximo permitido al script sea de 480 segundos.
+<br><br>
+Sin embargo cuando el script se ejecuta desde un navegador (es decir dentro de un entorno externo al intérprete PHP, como es el servidor Apache), y necesita mantener PHP enviando salida de datos al navegador, entonces la opción <i>'max_execution_time'</i> de <b><i>php.ini</i></b> y la función <i>'set_time_limit'</i> de PHP no son los únicos que controlan el tiempo que el script PHP puede ejecutar y la salida de los datos al navegador. La configuración del servidor también puede imponer restricciones de tiempo al script, más severas incluso que las de PHP. 
+<br><br>
+Si está ejecutando PHP usando <b>mod_php</b> de Apache entonces usted puede utilizar <i>set_time_limit(480)</i> para ajustar el límite de tiempo de ejecución en el script PHP. Esto funcionará como se espera en la mayoría de situaciones. 
+<br><br>
+Sin embargo, cuando PHP se ejecuta a través de <b>mod_fcgid</b> o <b>mod_fastcgi</b> o con un gestor de procesos <b>fastcgi</b> como PHP-FPM, entonces el entorno de ejecución impondrá sus propias restricciones de tiempo al script. En estos casos es posible que, incluso después de ajustar set_time_limit a 480, el script termine después de un período de tiempo específico, pero inferior al establecido por <i>max_execution_time</i> o la función <i>'set_time_limit'</i>. Esta será la restricción de tiempo forzada por el entorno de ejecución. 
+<br><br>
+Por ejemplo, <b>mod_fastcgi</b> tiene una opción llamada <i>"-idle-timeout"</i> que controla el tiempo de inactividad del script. Así que si el script no produce ninguna salida al controlador fastcgi en esa cantidad de segundos, entonces fastcgi forzará la terminación del script. La arquitectura es algo como esto: 
+<br><br>
+<div class="code notranslate" style="width: 98%;">
+<div>
+<span class="color_h1">Apache &lt;-&gt; mod_fastcgi &lt;-&gt; procesos PHP </span>
+</div>
+</div>
+<br>
+Lo mismo sucede con <b>mod_fcgid</b>. También tiene una restricción de tiempo incorporado. PHP-FPM tiene la opción llamada <i>"request_terminate_timeout"</i> que hará terminar el proceso después de la cantidad de segundos especificada. 
+<br><br>
+<p><img width="15" height="15" alt="lamp" src="images/lamp.gif"> 
+Consulte a su proveedor de hosting para más detalles sobre la configuración de su instalación.</p>
+
+		<br>
 		</td>
 	</tr>
 </table>

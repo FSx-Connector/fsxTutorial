@@ -6,7 +6,7 @@
 		<div id="rightcolumn">
 
 <div style="margin: auto; text-align: center; padding-top: 10px;">
-	<img width="110" height="176" border="0" title=" FSx-Connector para PrestaShop 1.5 y PrestaShop 1.6 " alt="" src="images/logo_15-16.png">
+	<img width="110" height="176" border="0" title=" FSx-Connector para PrestaShop 1.5 y PrestaShop 1.6 " alt="" src="images/logo_1.5-1.6.png">
 </div>
 <br>
 			<div id="rightshare" style="height:78px;margin-bottom:0px;">
