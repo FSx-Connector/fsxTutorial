@@ -126,6 +126,18 @@ con sus correspondientes de FactuSOL (Secciones, Familias, Artículos, etc.).</p
 <p>FactuSOL está concebido para utilizar en la web una sola Tienda y el stock correspondiente a un único Almacén definido en FactuSOL. Si necesita utilizar esta característica de PrestaShop, podrá utilizar FSx-Connector, pero no podrá actualizar el stock de los productos con este Módulo.</p>
 <hr>
 
+<h3 id="FAQ_PSHOP_30"><b>Quiero actualizar la versión de mi Tienda PrestaShop. ¿Cómo afecta a FSx-Connector?</b></h3>
+<p>Pueden darse dos situaciones:</p>
+<ul>
+	<li>Actualizar la Versión Menor de PrestaShop (Por ejemplo: de 1.6.0.2 hasta 1.6.0.9)<br>
+		Recuerde hacer primero una copia completa de su tienda y base de datos. Siga el procedimiento estándar recomendado por PrestaShop, excepto que NO debe desactivar los Módulos (Componentes) de FSx-Connector. El Conector deberá funcionar correctamente con la nueva versión de PrestaShop. Si no es así, contacte con el Servicio de Soporte.<br><br></li>
+	<li>Actualizar la Versión Mayor de PrestaShop (Por ejemplo: de 1.5.3.1 hasta 1.6.0.9)<br>
+		Recuerde hacer primero una copia completa de su tienda y base de datos. Siga el procedimiento estándar recomendado por PrestaShop, excepto que NO debe desactivar los Módulos (Componentes) de FSx-Connector. Es muy probable que FSx-Connector no funcione correctamente, debido a los cambios introducidos en la nueva versión de PrestaShop. Deberá adquirir el 
+		<a target="_blank" href="http://fsxmart.factusol-prestashop.es/fsx-actualizaciones/14-fsx-actualizacion.html"><b>componente de actualización</b></a> 
+		adecuado a su instalación.<br><br></li>
+</ul>
+<hr>
+
 <!--
 -->
 

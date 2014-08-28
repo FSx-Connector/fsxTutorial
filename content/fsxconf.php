@@ -110,7 +110,40 @@
 	<li>Valor: selector Si, No.</li>
 	<li>Por defecto: &apos;Si&apos;.</li>
 </ul>
+
+<br>
+<table class="lamp" id="table1">
+	<tr>
+		<th width="34"><img src="images/tip.png" width="32" height="32" alt="tip" title=" Sugerencia! "></th>
+		<td><b>¿Si no funciona esta directiva?<br></b><br>
+		Es posible que no note diferencia al cambiar los valores de esta directiva. Esto es porque su instalación de PrestaShop controla la activación del Modo de Depuración. <br><br>
+		<img width="15" height="15" alt="lamp" src="images/lamp.gif"> Para activar el Modo de Depuración (Debug) de Prestashop 
+		localice el fichero 
+		<br><br>
+		<i>&apos;&lt;tienda_prestashop&gt;/config/defines.inc.php&apos;</i>
+		<br><br>
+		Ábralo con un editor de texto y encuentre la línea:<br><br>
+		<div class="code notranslate" style="width: 98%;">
+			<div>
+			define('_PS_MODE_DEV_', false);<br>
+			</div>
+		</div>
+		<br>Deberá cambiarla por:<br><br>
+		<div class="code notranslate" style="width: 98%;">
+			<div>
+			define('_PS_MODE_DEV_', true);<br>
+			</div>
+		</div>
+		<br>Una vez activado el Modo de Depuración, al navegar por la Tienda PrestaShop (front o back-office), el sistema mostrará los errores de PHP que se produzcan. 
+		Debe desactivar el Modo de Depuración después de acabar de realizar pruebas y pasar la Tienda al Entorno de Producción. Para ello basta revertir los cambios anteriores.
+
+		</td>
+	</tr>
+</table>
+
+<br>
 <hr>
+<br>
 
 <h2>Configuraciones Técnicas del Enlace con FactuSOL</h2>
 
