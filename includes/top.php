@@ -93,7 +93,7 @@ document.getElementById("err_sent").style.display="block";
 			<a class="topnav" href="index.php?tab=nosintro" target="_top">NOSOTROS</a>
 			<a class="topnav" href="http://www.factusol-prestashop.es" target="_blank" style="word-spacing:normal;">SITIO WEB</a>
 			<a class="topnav" href="http://fsxmart.factusol-prestashop.es" target="_blank" style="word-spacing:normal;">COMPRAR</a>
-			<a class="topnav" href="https://github.com/FSx-Connector" target="_blank">Git</a>
+			<a class="topnav" href="https://github.com/FSx-Connector" target="_blank">GitHub</a>
 			<a class="topnav" href="index.php?tab=fsxfaq" target="_top">MAS...</a>
 		</div>
 		<div id="topnavAbout">

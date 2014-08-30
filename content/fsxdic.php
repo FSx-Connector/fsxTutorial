@@ -243,7 +243,7 @@ descargarán, pero el campo &quot;Forma de Pago&quot; del Pedido en FactuSOL, es
 <p>Esta opción se utiliza para comprobar la correspondencia entre Secciones / Familias y
 Categorías.</p>
 <ul>
-	<li>Valor: desplegable con los valores: <br><br></li>
+	<li>Valor: desplegable con los valores: <br><br>
 		<ul>
 			<li>&apos;Comprobar e informar&apos;<br />
 				Comprueba el Diccionario de
@@ -255,7 +255,7 @@ FactuSOL. Esta opción no realiza ninguna reparación.<br><br></li>
 			Comprueba el Diccionario de Categorías y
 elimina las entradas &quot;huérfanas&quot; (sin correspondencia) del
 Diccionario.<br><br></li>
-		</ul>
+		</ul></li>
 	<li>Por defecto: &apos;Comprobar e informar&apos;.<br><br></li>
 </ul>
 <hr>
@@ -311,8 +311,8 @@ PrestaShop correspondientes en un desplegable.</p>
 	<li>Toma el Código de la Familia a la que pertenece el Artículo, y busca una correspondencia en el Mapa de Secciones, Familias y Categorías.<br><br></li>
 	<li>Si encuentra una correspondencia de una Categoría, creará un Producto en esa Categoría.<br><br></li>
 	<li>Si no encuentra una correspondencia de una Categoría, busca el valor de "Categoría por defecto"<br><br></li>
-	<li>Si "Categoría por defecto" tiene se corresponde con una Categoría válida, creará un Producto en esa Categoría.<br><br></li>
-	<li>Si "Categoría por defecto" tiene no se corresponde con una categoría válida o es nulo, se produce un mensaje de error en el componente FSx-Log, y no se creará el Producto.<br><br></li>
+	<li>Si "Categoría por defecto" tiene corresponcia con una Categoría válida, creará un Producto en esa Categoría.<br><br></li>
+	<li>Si "Categoría por defecto" no tiene corresponcia con una Categoría válida o es nulo (no tiene asignado ningún valor), se produce un mensaje de error en el componente FSx-Log, y no se creará el Producto.<br><br></li>
 </ul>
 
 
